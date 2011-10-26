@@ -33,8 +33,9 @@ class Offer < Prawn::Document
   end
   
   def page01
-    image "public/contract/ca-rpa-jei-01.jpg", :width => 612, :height => 792
-    
+  end
+  
+  def page01_examples
     offer_date = [464.64, 711, 112, 8.35]
     buyer = [158.6, 691, 382, 8.35]
     property_description = [278.05, 681, 298.11, 8.35]
@@ -76,7 +77,7 @@ class Offer < Prawn::Document
     check buyer_seller_cbx
     write selling_agent, "SELLING AGENT"
   end
-  
+    
   def page02
     image "public/contract/ca-rpa-jei-02.jpg", :width => 612, :height => 792
 
@@ -136,25 +137,44 @@ class Offer < Prawn::Document
     property_address = [97.5, 765, 357.22, 8.35]
   end
   
-  def write_pages
-    page01
+  def write_pages(examples)
+    image "public/contract/ca-rpa-jei-01.jpg", :width => 612, :height => 792
+    page01 if examples
+
     start_new_page
-    page02
+    image "public/contract/ca-rpa-jei-02.jpg", :width => 612, :height => 792
+    page02 if examples
+
     start_new_page
-    page03
+    image "public/contract/ca-rpa-jei-03.jpg", :width => 612, :height => 792
+    page03 if examples
+
     start_new_page
-    page04
+    image "public/contract/ca-rpa-jei-04.jpg", :width => 612, :height => 792
+    page04 if examples
+
     start_new_page
-    page05
+    image "public/contract/ca-rpa-jei-05.jpg", :width => 612, :height => 792
+    page05 if examples
+
     start_new_page
-    page06
+    image "public/contract/ca-rpa-jei-06.jpg", :width => 612, :height => 792
+    page06 if examples
+
     start_new_page
-    page07
+    image "public/contract/ca-rpa-jei-07.jpg", :width => 612, :height => 792
+    page07 if examples
+
     start_new_page
-    page08
+    image "public/contract/ca-rpa-jei-08.jpg", :width => 612, :height => 792
+    page08 if examples
+
     start_new_page
-    page09
+    image "public/contract/ca-rpa-jei-09.jpg", :width => 612, :height => 792
+    page09 if examples
+
     start_new_page
-    page10
+    image "public/contract/ca-rpa-jei-10.jpg", :width => 612, :height => 792
+    page10 if examples    
   end
 end

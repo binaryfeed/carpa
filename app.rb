@@ -15,6 +15,6 @@ end
 
 get "/offer", :provides => 'application/pdf' do
   offer = Offer.new
-  offer.write_pages
+  offer.write_pages(false)
   offer.render
 end
