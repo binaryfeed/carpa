@@ -1,14 +1,13 @@
 #!/usr/bin/env ruby
 
-# 8.5 x 11 inches = 612 x 792 points
-
-require "prawn"
+require 'prawn'
 
 class Offer < Prawn::Document
+  # 8.5 x 11 inches = 612 x 792 points
   def initialize(options={}, &block)
     super(:margin => 0, &block)
     font_families.update("Deja Vu Sans" => {
-      :normal => "fonts/DejaVuSans.ttf"
+      :normal => "public/fonts/DejaVuSans.ttf"
     })
   end
   
@@ -34,7 +33,7 @@ class Offer < Prawn::Document
   end
   
   def page01
-    image "contract/ca-rpa-jei-01.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-01.jpg", :width => 612, :height => 792
     
     offer_date = [464.64, 711, 112, 8.35]
     buyer = [158.6, 691, 382, 8.35]
@@ -59,8 +58,8 @@ class Offer < Prawn::Document
     footer_fax = [344.61, 56, 230.4, 8.35]
     footer_broker = [63, 47.5, 369, 8.35]
 
-    write offer_date, "2011-October-09"
-    write buyer, "JEFFREY WESCOTT"
+    write offer_date, Time.now.strftime("%Y-%B-%d")
+    write buyer, "BUYER NAME"
     write property_description, "PROPERTY DESCRIPTION"
     write property_description_2, "(CONTINUATION)"
     write parcel_number, "PARCEL NUMBER"
@@ -79,49 +78,49 @@ class Offer < Prawn::Document
   end
   
   def page02
-    image "contract/ca-rpa-jei-02.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-02.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page03
-    image "contract/ca-rpa-jei-03.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-03.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page04
-    image "contract/ca-rpa-jei-04.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-04.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page05
-    image "contract/ca-rpa-jei-05.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-05.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page06
-    image "contract/ca-rpa-jei-06.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-06.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page07
-    image "contract/ca-rpa-jei-07.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-07.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page08
-    image "contract/ca-rpa-jei-08.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-08.jpg", :width => 612, :height => 792
 
     property_address = [103, 768, 303, 20]
   end
   
   def page09
-    image "contract/ca-rpa-jei-09.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-09.jpg", :width => 612, :height => 792
 
     property_address = [103.5, 704, 419, 8.35]
     # MORE
@@ -132,7 +131,7 @@ class Offer < Prawn::Document
   end
   
   def page10
-    image "contract/ca-rpa-jei-10.jpg", :width => 612, :height => 792
+    image "public/contract/ca-rpa-jei-10.jpg", :width => 612, :height => 792
 
     property_address = [97.5, 765, 357.22, 8.35]
   end
@@ -159,7 +158,3 @@ class Offer < Prawn::Document
     page10
   end
 end
-
-offer = Offer.new
-offer.write_pages
-offer.render_file "ca-rpa-jei-offer.pdf"
